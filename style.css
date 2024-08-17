@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #f1f1f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card-container {
+  height: 100px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+/* glassmorphism code */
+  background: rgba(172, 103, 131, 0.42);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.9px);
+  -webkit-backdrop-filter: blur(6.9px);
+  border: 1px solid rgba(67, 61, 139, 0.06);
+}
+
+.heading {
+  width: 50%;
+}
+
+.money-calculator {
+  width: 50%;
+}
