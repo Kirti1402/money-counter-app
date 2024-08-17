@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Bree Serif", serif;
 }
 
 .container {
@@ -16,19 +19,33 @@
   width: 600px;
   display: flex;
   justify-content: space-around;
-/* glassmorphism code */
+  /* glassmorphism code */
   background: rgba(172, 103, 131, 0.42);
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6.9px);
   -webkit-backdrop-filter: blur(6.9px);
   border: 1px solid rgba(67, 61, 139, 0.06);
 }
 
-.heading {
-  width: 50%;
+.heading-container {
+  width: 30%;
+  border-right: 1px solid black;
 }
 
-.money-calculator {
-  width: 50%;
+.money-calculator-container {
+  width: 70%;
+  border-left: 1px solid black;
+  
 }
+
+.heading {
+  height: 100%;
+  text-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #2f3645;
+}
+
