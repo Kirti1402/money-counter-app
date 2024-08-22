@@ -51,8 +51,10 @@ const currencies = {
 
 let inputCurrency = document.getElementById("input-currency");
 let dynamicDropdown = document.getElementById("dynamic-dropdown");
+let dynamicDropdownUl = document.getElementById("dynamic-dropdown-ul")
 
 const currenciesInputHandler = (event) => {
+  dynamicDropdownUl.innerHTML = '';
   event.preventDefault();
   let dynamicDropdownList = [];
   let currencyInputValue = event.target.value.toLocaleLowerCase();
@@ -73,7 +75,7 @@ const currenciesInputHandler = (event) => {
         // but it doesn't work with key-value pairs directly in this context.
         // dynamicDropdownList = [...dynamicDropdownList, [key]:currencies[key]];
         dynamicDropdownList.push({ [key]: currencies[key] });
-        console.log("dynamicdropdownlist", dynamicDropdownList);
+
       }
     });
   }
@@ -86,25 +88,32 @@ const currenciesInputHandler = (event) => {
 };
 
 const dynamicDropdownHandler = (dynamicDropdownList) => {
+
   if (dynamicDropdownList.length === 0) {
     console.log("no currencies found");
+    
   }
 
+
+
   dynamicDropdownList.forEach((item, index) => {
-    console.log(item, index);
+    
+
+    console.log("item nd index",item, index);
     Object.keys(item).forEach((key) => {
+
+      console.log("inside object keys",key)
       const currency = item[key];
 
       console.log(currency.name);
-      const ul = document.createElement("ul");
-      ul.className = "dropdown-list-ul";
+
 
       const li = document.createElement("li");
       li.classList.add("dropdown-item");
 
       const div1 = document.createElement("div");
       div1.classList.add("dropdown-item-div1");
-      div1.textContent = key;
+      div1.textContent = key + " " + currency.symbol;
 
       const div2 = document.createElement("div");
       div2.classList.add("dropdown-item-div2");
@@ -112,13 +121,14 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
 
       li.appendChild(div1);
       li.appendChild(div2);
-      ul.appendChild(li);
+      dynamicDropdownUl.appendChild(li);
 
-      dynamicDropdown.appendChild(ul);
     });
   });
 
+  dynamicDropdown.appendChild(dynamicDropdownUl);
   console.log("insideDynamicDropdownhandler", dynamicDropdownList);
 };
 
 inputCurrency.addEventListener("input", currenciesInputHandler);
+
