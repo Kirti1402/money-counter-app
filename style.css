@@ -62,6 +62,7 @@
 #input-currency{
   width: 70%;
   float: right;
+  position: relative;
 }
 /* note visibility hides the element , but it still takes up space in the layout . 
 display : none removes the element from document */

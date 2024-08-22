@@ -56,6 +56,9 @@ const currenciesInputHandler = (event) => {
   event.preventDefault();
   let dynamicDropdownList = [];
   let currencyInputValue = event.target.value.toLocaleLowerCase();
+  const isEmptyString = /^$/;
+    console.log(dynamicDropdown.style)
+  dynamicDropdown.style.display = 'block';
   if (/^\s*$/.test(currencyInputValue)) {
     console.log("Please Enter Currency");
     dynamicDropdownHandler(dynamicDropdownList);
@@ -75,11 +78,20 @@ const currenciesInputHandler = (event) => {
     });
   }
 
+  if(isEmptyString.test(currencyInputValue)) {
+    dynamicDropdown.style.display = '';
+  }
+
   dynamicDropdownHandler(dynamicDropdownList);
 };
 
 const dynamicDropdownHandler = (dynamicDropdownList) => {
+    if(dynamicDropdownList.length === 0){
+        console.log("no currencies found")
+    }
   console.log("insideDynamicDropdownhandler", dynamicDropdownList);
+
+
 };
 
 inputCurrency.addEventListener("input", currenciesInputHandler);
