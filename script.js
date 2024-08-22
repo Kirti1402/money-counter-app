@@ -50,21 +50,36 @@ const currencies = {
 };
 
 let inputCurrency = document.getElementById("input-currency");
+let dynamicDropdown = document.getElementById("dynamic-dropdown")
 
 const currenciesInputHandler = (event) =>{
     event.preventDefault();
-    let currencyInputValue = event.target.value;
-    let errorMessage = (/^\s*$/.test(currencyInputValue))? "Please Enter Currency" :null
-    if(errorMessage == null){
+    let dynamicDropdownList =[]
+    let currencyInputValue = event.target.value.toLocaleLowerCase();
+    if((/^\s*$/.test(currencyInputValue))){
+        console.log("Please Enter Currency")
+    } else {
         Object.keys(currencies).forEach(key => {
-            if(key.includes(currencyInputValue) || currencies[key].symbol.includes(currencyInputValue)){
-                console.log(`Key: ${key}, Name: ${currencies[key].name}, Symbol: ${currencies[key].symbol}`);
-            }
-            
+            if(key.toLocaleLowerCase().includes(currencyInputValue) || currencies[key].symbol.includes(currencyInputValue) || currencies[key].
+            name.toLocaleLowerCase().includes(currencyInputValue) ){
+                // [key]:currencies[key] is not valid inside an array literal. The spread operator (...) is used to expand or include elements from an existing array or object, 
+                // but it doesn't work with key-value pairs directly in this context.
+                // dynamicDropdownList = [...dynamicDropdownList, [key]:currencies[key]];
+                dynamicDropdownList.push({ [key]: currencies[key] });
+                console.log("dynamicdropdownlist", dynamicDropdownList)
+               
+            }             
         });
     }
-    
+    if(dynamicDropdownList.length == 0){
+        dynamicDropdownList.push("Currencies not Found")
+    }
 
+    dynamicDropdownHandler(dynamicDropdownList);
+}
+
+const dynamicDropdownHandler = (dynamicDropdownList)=>{
+    console.log("insideDynamicDropdownhandler",dynamicDropdownList)
 }
 
 inputCurrency.addEventListener("input", currenciesInputHandler);

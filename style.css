@@ -15,7 +15,7 @@
   height: 100vh;
 }
 .card-container {
-  height: 100px;
+  height: 300px;
   width: 600px;
   display: flex;
   justify-content: space-around;
@@ -36,6 +36,8 @@
 .money-calculator-container {
   width: 70%;
   border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
   
 }
 
@@ -47,6 +49,28 @@
   justify-content: center;
   align-items: center;
   color: #2f3645;
+}
+
+.currency-option{
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid black;
+  height: 20%;
+  width: 70%;
+}
+
+#input-currency{
+  width: 70%;
+  float: right;
+}
+/* note visibility hides the element , but it still takes up space in the layout . 
+display : none removes the element from document */
+#dynamic-dropdown{
+  display: none;
+  background-color: aqua;
+  width: 70%;
+  float: right;
+  border: 1px solid black;
 }
 
 
