@@ -38,7 +38,6 @@
   border-left: 1px solid black;
   display: flex;
   justify-content: center;
-  
 }
 
 .heading {
@@ -51,27 +50,30 @@
   color: #2f3645;
 }
 
-.currency-option{
+.currency-option {
   margin-top: 15px;
   padding: 10px;
   border: 1px solid black;
   height: 20%;
   width: 70%;
+  position: relative;
 }
 
-#input-currency{
+#input-currency {
   width: 70%;
   float: right;
-  position: relative;
+
 }
 /* note visibility hides the element , but it still takes up space in the layout . 
 display : none removes the element from document */
-#dynamic-dropdown{
+
+#dynamic-dropdown {
+  margin-top: 10px;
   display: none;
   background-color: aqua;
-  width: 70%;
+  width: 200px;
   float: right;
   border: 1px solid black;
+  height: 180px;
+  overflow-y: auto;
 }
-
-

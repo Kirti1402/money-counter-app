@@ -57,8 +57,8 @@ const currenciesInputHandler = (event) => {
   let dynamicDropdownList = [];
   let currencyInputValue = event.target.value.toLocaleLowerCase();
   const isEmptyString = /^$/;
-    console.log(dynamicDropdown.style)
-  dynamicDropdown.style.display = 'block';
+  console.log(dynamicDropdown.style);
+  dynamicDropdown.style.display = "block";
   if (/^\s*$/.test(currencyInputValue)) {
     console.log("Please Enter Currency");
     dynamicDropdownHandler(dynamicDropdownList);
@@ -78,20 +78,47 @@ const currenciesInputHandler = (event) => {
     });
   }
 
-  if(isEmptyString.test(currencyInputValue)) {
-    dynamicDropdown.style.display = '';
+  if (isEmptyString.test(currencyInputValue)) {
+    dynamicDropdown.style.display = "";
   }
 
   dynamicDropdownHandler(dynamicDropdownList);
 };
 
 const dynamicDropdownHandler = (dynamicDropdownList) => {
-    if(dynamicDropdownList.length === 0){
-        console.log("no currencies found")
-    }
+  if (dynamicDropdownList.length === 0) {
+    console.log("no currencies found");
+  }
+
+  dynamicDropdownList.forEach((item, index) => {
+    console.log(item, index);
+    Object.keys(item).forEach((key) => {
+      const currency = item[key];
+
+      console.log(currency.name);
+      const ul = document.createElement("ul");
+      ul.className = "dropdown-list-ul";
+
+      const li = document.createElement("li");
+      li.classList.add("dropdown-item");
+
+      const div1 = document.createElement("div");
+      div1.classList.add("dropdown-item-div1");
+      div1.textContent = key;
+
+      const div2 = document.createElement("div");
+      div2.classList.add("dropdown-item-div2");
+      div2.textContent = currency.name;
+
+      li.appendChild(div1);
+      li.appendChild(div2);
+      ul.appendChild(li);
+
+      dynamicDropdown.appendChild(ul);
+    });
+  });
+
   console.log("insideDynamicDropdownhandler", dynamicDropdownList);
-
-
 };
 
 inputCurrency.addEventListener("input", currenciesInputHandler);
