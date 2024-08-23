@@ -52,6 +52,7 @@ const currencies = {
 let inputCurrency = document.getElementById("input-currency");
 let dynamicDropdown = document.getElementById("dynamic-dropdown");
 let dynamicDropdownUl = document.getElementById("dynamic-dropdown-ul")
+let cardContainer = document.getElementsByClassName("card-container")
 
 const currenciesInputHandler = (event) => {
   dynamicDropdownUl.innerHTML = '';
@@ -117,7 +118,15 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
   
         const div1 = document.createElement("div");
         div1.classList.add("dropdown-item-div1");
-        div1.textContent = key + " " + currency.symbol;
+
+        const span1 = document.createElement("span");
+        span1.textContent = key;
+
+        const span2 = document.createElement("span");
+        span2.textContent=currency.symbol
+        
+        div1.appendChild(span1);
+        div1.appendChild(span2);
   
         const div2 = document.createElement("div");
         div2.classList.add("dropdown-item-div2");
@@ -127,6 +136,9 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
         li.appendChild(div1);
         li.appendChild(div2);
         dynamicDropdownUl.appendChild(li);
+        li.addEventListener("click", () => {
+          selectItem(li);
+      });
   
       });
     });
@@ -135,6 +147,11 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
   dynamicDropdown.appendChild(dynamicDropdownUl);
   console.log("insideDynamicDropdownhandler", dynamicDropdownList);
 };
+
+const selectItem = (li) =>{
+  console.log(li)
+
+}
 
 inputCurrency.addEventListener("input", currenciesInputHandler);
 
