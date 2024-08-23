@@ -54,6 +54,9 @@ let dynamicDropdown = document.getElementById("dynamic-dropdown");
 let dynamicDropdownUl = document.getElementById("dynamic-dropdown-ul")
 let cardContainer = document.getElementsByClassName("card-container")
 
+let setCurrency ;
+let setSymbol ;
+
 const currenciesInputHandler = (event) => {
   dynamicDropdownUl.innerHTML = '';
   event.preventDefault();
@@ -120,9 +123,11 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
         div1.classList.add("dropdown-item-div1");
 
         const span1 = document.createElement("span");
+        span1.classList.add("span1")
         span1.textContent = key;
 
         const span2 = document.createElement("span");
+        span2.classList.add("span2")
         span2.textContent=currency.symbol
         
         div1.appendChild(span1);
@@ -150,7 +155,11 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
 
 const selectItem = (li) =>{
   console.log(li)
-
+  const setCurrency = li.querySelector('.span1').textContent;
+  const setSymbol = li.querySelector('.span2').textContent;
+  console.log(setCurrency,setSymbol)
+  inputCurrency.value = setCurrency + setSymbol
+  dynamicDropdown.style.display = "none"
 }
 
 inputCurrency.addEventListener("input", currenciesInputHandler);
