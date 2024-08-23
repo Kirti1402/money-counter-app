@@ -15,8 +15,8 @@
   height: 100vh;
 }
 .card-container {
-  height: 300px;
-  width: 600px;
+  height: 500px;
+  width: 700px;
   display: flex;
   justify-content: space-around;
   /* glassmorphism code */
@@ -35,9 +35,7 @@
 
 .money-calculator-container {
   width: 70%;
-  border-left: 1px solid black;
-  display: flex;
-  justify-content: center;
+  margin: 10px;
 }
 
 .heading {
@@ -51,18 +49,22 @@
 }
 
 .currency-option {
-  margin-top: 15px;
+
   padding: 10px;
-  border: 1px solid black;
-  height: 20%;
+  height: 12%;
   width: 70%;
+  margin :0 auto;
   position: relative;
 }
 
 #input-currency {
   width: 70%;
   float: right;
-
+  border: none;
+  outline: none;
+  height: 25px;
+  border-radius:5px;
+  padding-left: 5px;
 }
 /* note visibility hides the element , but it still takes up space in the layout . 
 display : none removes the element from document */
@@ -78,7 +80,7 @@ display : none removes the element from document */
   overflow-y: auto;
   box-shadow: 0px 3px 25px 0px rgb(117, 107, 117);
   border-radius: 10px;
-
+  position: absolute;
 }
 
 #dynamic-dropdown::-webkit-scrollbar {
@@ -109,4 +111,18 @@ display : none removes the element from document */
 
 .dropdown-item-div1 > *{
   margin-right: 2px;
+}
+
+.money-calculate{
+height: 80%;
+width: 100%;
+border: 1px solid black;
+}
+
+.curr-note{
+
+}
+
+.noOfNotes{
+
 }
