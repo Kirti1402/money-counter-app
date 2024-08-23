@@ -91,40 +91,46 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
 
   if (dynamicDropdownList.length === 0) {
     console.log("no currencies found");
-    
-  }
-
-
-
-  dynamicDropdownList.forEach((item, index) => {
-    
-
-    console.log("item nd index",item, index);
-    Object.keys(item).forEach((key) => {
-
-      console.log("inside object keys",key)
-      const currency = item[key];
-
-      console.log(currency.name);
-
-
-      const li = document.createElement("li");
+    const li = document.createElement("li");
       li.classList.add("dropdown-item");
-
       const div1 = document.createElement("div");
       div1.classList.add("dropdown-item-div1");
-      div1.textContent = key + " " + currency.symbol;
-
-      const div2 = document.createElement("div");
-      div2.classList.add("dropdown-item-div2");
-      div2.textContent = currency.name;
-
+      div1.textContent = "Curriency not found";
       li.appendChild(div1);
-      li.appendChild(div2);
       dynamicDropdownUl.appendChild(li);
+    
+  }else{
+    dynamicDropdownList.forEach((item, index) => {
+    
 
+      console.log("item nd index",item, index);
+      Object.keys(item).forEach((key) => {
+  
+        console.log("inside object keys",key)
+        const currency = item[key];
+  
+        console.log(currency.name);
+  
+  
+        const li = document.createElement("li");
+        li.classList.add("dropdown-item");
+  
+        const div1 = document.createElement("div");
+        div1.classList.add("dropdown-item-div1");
+        div1.textContent = key + " " + currency.symbol;
+  
+        const div2 = document.createElement("div");
+        div2.classList.add("dropdown-item-div2");
+        div2.textContent = currency.name;
+        // div2.style.alignSelf = "flex-end";
+  
+        li.appendChild(div1);
+        li.appendChild(div2);
+        dynamicDropdownUl.appendChild(li);
+  
+      });
     });
-  });
+  }
 
   dynamicDropdown.appendChild(dynamicDropdownUl);
   console.log("insideDynamicDropdownhandler", dynamicDropdownList);
