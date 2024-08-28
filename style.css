@@ -29,12 +29,16 @@
 }
 
 .heading-container {
-  width: 30%;
+  width: 40%;
   border-right: 1px solid black;
 }
 
+.heading-text{
+ font-size: 50px;
+}
+
 .money-calculator-container {
-  width: 70%;
+  width: 60%;
   margin: 10px;
 }
 
@@ -106,7 +110,6 @@ display : none removes the element from document */
 
 .dropdown-item:hover{
   background-color: #f1f1f0;
-
 }
 
 .dropdown-item-div1 > *{
@@ -114,15 +117,51 @@ display : none removes the element from document */
 }
 
 .money-calculate{
-height: 80%;
+height: 60%;
 width: 100%;
-border: 1px solid black;
+
+display: flex;
+justify-content: center;
 }
 
 .curr-note{
-
+  width: 20%;
 }
 
 .noOfNotes{
+  width: 50%;
+}
 
+li{
+  list-style: none;
+}
+
+.curr-symbol-list{
+  margin: 13px;
+  display: flex;
+  justify-content: end;  
+}
+
+
+.note-count{
+  margin: 10px;
+}
+
+.input-count{
+  width: 80%;
+  border: none;
+  outline: none;
+  height: 25px;
+  border-radius:5px;
+  padding-left: 5px;
+}
+
+.total-amount {
+  text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

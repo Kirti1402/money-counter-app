@@ -53,9 +53,25 @@ let inputCurrency = document.getElementById("input-currency");
 let dynamicDropdown = document.getElementById("dynamic-dropdown");
 let dynamicDropdownUl = document.getElementById("dynamic-dropdown-ul")
 let cardContainer = document.getElementsByClassName("card-container")
+let currencySymbolSpan = document.getElementsByClassName("curr-symbol");
+let amountDisplay = document.getElementsByClassName("amount");
+
+console.log(amountDisplay,amountDisplay[0].innerText)
+
 
 let setCurrency ;
 let setSymbol ;
+let total = 0 ;
+
+let notesCount = {
+  "2000-cur":0,
+  "1000-cur":0,
+  "500-cur":0,
+  "100-cur":0,
+  "50-cur":0,
+  "10-cur":0,
+  "5-cur":0
+}
 
 const currenciesInputHandler = (event) => {
   dynamicDropdownUl.innerHTML = '';
@@ -143,9 +159,52 @@ const dynamicDropdownHandler = (dynamicDropdownList) => {
 const selectItem = (li) =>{
   const setCurrency = li.querySelector('.span1').textContent;
   const setSymbol = li.querySelector('.span2').textContent;
-  inputCurrency.value = setCurrency + setSymbol
+  inputCurrency.value = setCurrency +" "+ setSymbol
   dynamicDropdown.style.display = "none"
+
+console.log(currencySymbolSpan,setSymbol)
+Array.from(currencySymbolSpan).map(function(symbol) {
+  symbol.textContent = setSymbol;
+  return symbol; // map requires a return value
+}); 
+}
+
+let twoThousandCurrency = document.getElementById("2000-cur")
+let oneThousandCurrency = document.getElementById("1000-cur")
+let fiveHundredCurrency = document.getElementById("500-cur")
+let hundredCurrency = document.getElementById("100-cur")
+let fiftyCurrency = document.getElementById("50-cur")
+let tenCurrency = document.getElementById("10-cur")
+let fiveCurrency = document.getElementById("5-cur")
+
+const totalNoteCount = (event) => {
+
+  console.log(event)
+  console.log(event.target.value)
+  console.log(event.target.id)
+
+  if(event.target.value < 0){
+    event.target.value = 0
+    notesCount["event.target.value"] = 0
+  } else {
+      notesCount[event.target.id] = event.target.value == '' ? 0 : event.target.value
+      console.log("totalnotecount",notesCount)
+      
+  }
+  total =  (notesCount["2000-cur"]*2000)   + (notesCount["1000-cur"]*1000)  + (notesCount["500-cur"] *500)+ (notesCount["100-cur"] *100)+ (notesCount["50-cur"] * 50) + (notesCount["10-cur"] * 10) + (notesCount["5-cur"] * 5) 
+  console.log(total)
+  console.log(amountDisplay,amountDisplay[0].value)
+  
+  amountDisplay[0].textContent = total
 }
 
 inputCurrency.addEventListener("input", currenciesInputHandler);
 
+
+twoThousandCurrency.addEventListener("input",totalNoteCount)
+oneThousandCurrency.addEventListener("input",totalNoteCount)
+fiveHundredCurrency.addEventListener("input",totalNoteCount)
+hundredCurrency.addEventListener("input",totalNoteCount)
+fiftyCurrency.addEventListener("input",totalNoteCount)
+tenCurrency.addEventListener("input",totalNoteCount)
+fiveCurrency.addEventListener("input",totalNoteCount)
