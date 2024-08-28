@@ -9,3 +9,5 @@
 * HTML5
 * CSS3
 * Vanilla JS
+
+[View Demo](https://notecounter.netlify.app/)
